@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :topics do
     member do
       post 'upvote'
+      post 'downvote'
     end
   end
 
-  get 'welcome/about'  
+  get 'welcome/about'
 end
