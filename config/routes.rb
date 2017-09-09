@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       post 'upvote'
     end
   end
+
+  get 'welcome/about'  
 end
