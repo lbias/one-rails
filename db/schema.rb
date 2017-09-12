@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912014123) do
+ActiveRecord::Schema.define(version: 20170912082209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170912014123) do
     t.integer "wage_upper_bound"
     t.integer "wage_lower_bound"
     t.string "contact_email"
+    t.boolean "is_hidden", default: true
   end
 
   create_table "users", force: :cascade do |t|
