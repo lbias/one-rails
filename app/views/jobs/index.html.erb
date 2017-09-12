@@ -2,6 +2,24 @@
   <%= link_to("Add a job", new_job_path, :class => "btn btn-default" ) %>
 </div>
 
+<div class="dropdown clearfix pull-right">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Sort
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+    <li>
+      <%= link_to("By wage floor", jobs_path(:order => "by_lower_bound")) %>
+    </li>
+    <li>
+      <%= link_to("By wage Cap", jobs_path(:order => "by_upper_bound")) %>
+    </li>
+    <li>
+      <%= link_to("By posting time", jobs_path ) %>
+    </li>
+  </ul>
+</div>
+
 <table class="table table-boldered">
   <thead>
     <tr>
