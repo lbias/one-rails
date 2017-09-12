@@ -5,15 +5,43 @@
 <br><br>
 
 <table class="table table-boldered">
+  <thead>
+    <tr>
+      <td>
+        Job position
+      </td>
+      <td>
+        Application counts
+      </td>
+      <td>
+        Wage floor
+      </td>
+      <td>
+        Wage Cap
+      </td>
+      <td>
+        Operation options
+      </td>
+      <td>
+        Posted at
+      </td>
+    </tr>
+  </thead>
+
   <% @jobs.each do |job| %>
     <tr>
       <td>
         <%= render_job_status(job) %>
         <%= link_to(job.title, admin_job_path(job)) %>
       </td>
+      <td> <%= job.resumes.count %> </td>
+      <td> <%= job.wage_lower_bound %> </td>
+      <td> <%= job.wage_upper_bound %> </td>
       <td>
         <%= link_to("Edit", edit_admin_job_path(job)) %>
+        |
         <%= link_to("Destroy", admin_job_path(job), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+        |
         <% if job.is_hidden %>
           <%= link_to("Publish", publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-default") %>
         <% else %>
