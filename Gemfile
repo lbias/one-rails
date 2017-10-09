@@ -19,6 +19,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri]
