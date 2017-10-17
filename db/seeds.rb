@@ -7,7 +7,7 @@ u.save
 
 # create an admin acccount
 u = User.new
-u.email = "admin@admin.com"
+u.email = "adminadmin@adminadmin.com"
 u.password = "adminadmin"
 u.password_confirmation = "adminadmin"
 u.is_admin = true
