@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
   
   def show
     @order = Order.find(params[:id])
-    @product_list = @order.product_lists
+    @product_lists = @order.product_lists
   end
 
   private
