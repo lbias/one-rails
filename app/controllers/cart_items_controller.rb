@@ -19,7 +19,7 @@ class CartItemsController < ApplicationController
     @product = @cart_item.product
     @cart_item.destroy
     flash[:warning] = "You removed #{@product.title} from the cart successully."
-    redirect_to @product
+    redirect_to carts_path
   end
 
   private
