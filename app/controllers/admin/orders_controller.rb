@@ -16,6 +16,7 @@ class Admin::OrdersController < ApplicationController
   def ship
     @order = Order.find(params[:id])
     @order.ship!
+    OrderMailer.notify_ship(@order).deliver!
     redirect_to admin_order_path
   end
   
@@ -28,6 +29,7 @@ class Admin::OrdersController < ApplicationController
   def cancel_order
     @order = Order.find(params[:id])
     @order.cancel_order!
+    OrderMailer.notify_cancel_order(@order).deliver!
     redirect_to admin_order_path
   end
   

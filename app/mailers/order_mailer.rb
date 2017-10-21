@@ -11,6 +11,22 @@ class OrderMailer < ApplicationMailer
     @order = order
     @user = order.user
     @product_lists = @order.product_lists
-    mail(to: "admin@test.com" , subject: "[OneStore] 用户#{order.user.email}applied to cancel order #{order.token}")
+    mail(to: "admin@test.com" , subject: "[OneStore] User #{order.user.email}applied to cancel order #{order.token}")
   end  
+
+  def notify_ship(order)
+    @order        = order
+    @user         = order.user
+    @product_lists = @order.product_lists
+
+    mail(to: @user.email, subject: "[OneStore] Your order #{order.token} has been shipped.")
+  end
+
+  def notify_cancel_order(order)
+    @order        = order
+    @user         = order.user
+    @product_lists = @order.product_lists
+
+    mail(to: @user.email, subject: "[JDStore] Your order #{order.token} has been cancelled.")
+  end
 end
