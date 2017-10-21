@@ -8,7 +8,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :products
-    resources :orders
+    resources :orders do
+      member do
+        post :cancel_order
+        post :ship
+        post :deliver
+        post :return_goods
+      end
+    end
   end
 
   resources :products do
