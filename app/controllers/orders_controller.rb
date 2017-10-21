@@ -40,6 +40,14 @@ class OrdersController < ApplicationController
     @order.make_payment!
     redirect_to order_path(@order.token), notice: 'You have paid with wechat successfully.'
   end
+  
+  def apply_to_cancel
+    @order = Order.find_by_token(params[:id])
+    OrderMailer.apply_cancel(@order).deliver!
+    flash[:notice] = "Your application for cancelling of the order has veen submitted."
+    redirect_to order_path(@order.token)  
+  end
+  
   private
   def order_params
     params.require(:order).permit(:billing_name, :billing_address, :shipping_name, :shipping_address)
